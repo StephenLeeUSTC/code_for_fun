@@ -13,7 +13,7 @@ def Input(day):
     try:
         return open(filename)
     except FileNotFoundError:
-        return urllib.request.urlopen("http://norvig.com/ipython/" + filename)
+        return urllib.request.urlopen("http://adventofcode.com/2016/day/" + day + "/input")
 
 def transpose(matrix): return zip(*matrix)
 
