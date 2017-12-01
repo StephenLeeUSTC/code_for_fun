@@ -1,17 +1,15 @@
 # Python 3.x
 import re
-import numpy as np
 import math
 import urllib.request
 
-from collections import Counter, defaultdict, namedtuple, deque
-from functools   import lru_cache
-from itertools   import permutations, combinations, chain, cycle, product, islice
+from collections import defaultdict
+from itertools   import combinations, islice
 from heapq       import heappop, heappush
 
 def Input(day):
     "Open this day's input file."
-    filename = 'advent2016/input{}.txt'.format(day)
+    filename = './input/input{}.txt'.format(day)
     try:
         return open(filename)
     except FileNotFoundError:
