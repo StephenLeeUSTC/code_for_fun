@@ -21,8 +21,8 @@ def decode(instructions, x=2, y=2):
     for line in instructions:
         for C in line:
             x, y = move(C, x, y)
-        print(keypad[y][x])
-        # yield keypad[y][x]
+        # print(keypad[y][x])
+        yield keypad[y][x]
 
 def move(C, x, y):
     if   C == 'L' and keypad[y][x-1] is not off: x -= 1
@@ -35,5 +35,5 @@ assert move('U', 2, 2) == (2, 1)
 assert move('U', 2, 1) == (2, 1)
 # assert lt.cat(decode("ULL RRDDD LURDL UUUUD".split())) == '1985'
 
-# lt.cat(decode(lt.Input(2)))
-decode(lt.Input(2))
+print(lt.cat(decode(lt.Input(2))))
+# decode(lt.Input(2))
