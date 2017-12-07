@@ -37,3 +37,17 @@ assert move('U', 2, 1) == (2, 1)
 
 print(lt.cat(decode(lt.Input(2))))
 # decode(lt.Input(2))
+
+# the second problem in fact the same
+keypad = Keypad('''
+        .......
+        ...1...
+        ..234..
+        .56789.
+        ..ABC..
+        ...D...
+        .......
+        ''')
+
+assert keypad[1][3] == '1'
+print(lt.cat(decode(lt.Input(2), 1, 3)))
