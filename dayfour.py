@@ -23,3 +23,25 @@ assert parse_line("aaaaa-bbb-z-y-x-123[abxyz]") == ("aaaaa-bbb-z-y-x", "123", "a
 
 result = sum(map(parse_sector, lt.Input(4)))
 print(result)
+
+def decrypt(line):
+    "decrypt one line to get res"
+    name, sector, _ = parse_line(line)
+    return decode_name(name, int(sector)) + sector
+
+def decode_name(name, sector):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    N = sector % len(alphabet)
+    # make a map for translate
+    d = str.maketrans(alphabet, alphabet[N:] + alphabet[:N])
+    return name.translate(d)
+
+assert decrypt("abc-1[abc]") == "bcd1"
+
+decrypted_lines = map(decrypt, lt.Input(4))
+
+for line in decrypted_lines:
+    if re.search("north", line):
+        print(line)
+
+
