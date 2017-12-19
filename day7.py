@@ -34,3 +34,12 @@ def tls(line):
     return abba(getoutside(line)) and not abba(getinside(line))
 
 print(sum(tls(line) for line in lt.Input(7)))
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+def ssl(line):
+    "judge if a line is a ssl"
+    return any(a + b + a in getoutside(line) and b + a + b in
+            getinside(line) for a in alphabet for b in alphabet if a != b)
+
+print(sum(ssl(line) for line in lt.Input(7)))
