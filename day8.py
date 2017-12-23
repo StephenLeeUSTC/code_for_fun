@@ -24,3 +24,14 @@ def run(commands, screen):
 result = run(lt.Input(8), Screen())
 
 print(result)
+
+def getndarray(commands, screen):
+    for cmd in commands:
+        interpret(cmd, screen)
+    return screen
+
+# to get the ndarray result
+result2 = getndarray(lt.Input(8), Screen())
+
+for row in result2:
+    print(''.join(' #'[column] for column in row))
