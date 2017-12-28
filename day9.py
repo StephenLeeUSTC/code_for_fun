@@ -21,6 +21,22 @@ def decompress(f):
 
 print(len(decompress(Input(9).read())))
 
+def get_length(f):
+    f = re.sub(r'\s', '', f)
+    length = 0
+    index = 0
+    while index < len(f):
+        m = pattern.match(f, index)
+        if m:
+            n, t = map(int, m.groups())
+            index = m.end()
+            length += t * get_length(f[index:index + n])
+            index += n
+        else:
+            length += 1
+            index += 1
+    return length
 
+print(get_length(Input(9).read()))
 
 
