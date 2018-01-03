@@ -25,3 +25,6 @@ def bots(instructions, goal={17, 61}):
     return has
 
 has = bots(Input(10).read())
+
+print(has['output 0'].pop() * has['output 1'].pop() * has['output 2'].pop())
+
